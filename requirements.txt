@@ -1,0 +1,4 @@
+numpy
+tensorflow==1.15
+matplotlib
+tensorflow-object-detection-api
