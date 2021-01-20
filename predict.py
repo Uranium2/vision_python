@@ -146,10 +146,10 @@ area = (left - right) * (top - bottom)
 area_max = im_width * im_height
 ratio_area = area / area_max
 
-if ratio_area < 0.3:
-  print("Don't stop yet")
-else:
-  print("Should Stop")
+# if ratio_area < 0.03:
+#   print("Don't stop yet")
+# else:
+#   print("Should Stop")
 
 vis_util.visualize_boxes_and_labels_on_image_array(
 	image_np,
