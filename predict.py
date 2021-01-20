@@ -136,7 +136,20 @@ score_best_prediction = output_dict['detection_scores'][index_best_prediction]
 box_best_prediction = output_dict['detection_boxes'][index_best_prediction]
 classe_best_prediction = output_dict['detection_classes'][index_best_prediction]
 
-print(box_best_prediction)
+area = (box_best_prediction[0] - box_best_prediction[3]) * (box_best_prediction[1] - box_best_prediction[2])
+(im_width, im_height) = image.size
+ymin, xmin, ymax, xmax = box_best_prediction
+(left, right, top, bottom) = (xmin * im_width, xmax * im_width, 
+                              ymin * im_height, ymax * im_height)
+
+area = (left - right) * (top - bottom)
+area_max = im_width * im_height
+ratio_area = area / area_max
+
+if ratio_area < 0.3:
+  print("Don't stop yet")
+else:
+  print("Should Stop")
 
 vis_util.visualize_boxes_and_labels_on_image_array(
 	image_np,
